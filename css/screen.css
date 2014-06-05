@@ -1,0 +1,110 @@
+html, body {
+  margin: 0;
+  background-color: black;
+  font-family: monospace;
+  color: white;
+}
+
+a {
+  color: #BBB;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#credits {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 2em;
+}
+
+#board {
+  margin: 0 auto;
+  width: 600px;
+  height: 400px;
+  position: relative;
+}
+
+#centre, 
+#ter1, #ter2, #ter3, #ter4, #ter5, #ter6, #ter7,
+#turul, .ellen1, .ellen2 {
+  display: block;
+  position: absolute;
+}
+
+#centre {
+  background-image: url(images/centre.gif);
+  width: 82px;
+  height: 58px;
+}
+
+#ter1 {
+  background-image: url(images/ter1.gif);
+  width: 66px;
+  height: 37px;
+}
+
+#ter2 {
+  background-image: url(images/ter2.gif);
+  width: 15px;
+  height: 29px;
+}
+
+#ter3 {
+  background-image: url(images/ter3.gif);
+  width: 7px;
+  height: 6px;
+}
+
+#ter4 {
+  background-image: url(images/ter4.gif);
+  width: 65px;
+  height: 45px;
+}
+
+#ter5 {
+  background-image: url(images/ter5.gif);
+  width: 35px;
+  height: 30px;
+}
+
+#ter6 {
+  background-image: url(images/ter6.gif);
+  width: 80px;
+  height: 70px;
+}
+
+#ter7 {
+  background-image: url(images/ter7.gif);
+  width: 33px;
+  height: 23px;
+}
+
+.ellen1 {
+  background-image: url(images/ellen1.gif);
+  width: 13px;
+  height: 24px;
+}
+
+.ellen2 {
+  background-image: url(images/ellen2.gif);
+  width: 19px;
+  height: 18px;
+}
+
+#turul {
+  background-image: url(images/turul.gif);
+  width: 62px;
+  height: 34px;
+}
+
+#dashboard {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+}
