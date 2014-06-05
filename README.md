@@ -1,6 +1,7 @@
 A játék célja összerakni Magyarországot miközben elkerüljük a dekadens nyugati befolyásoló tényezőket.
 
-Irányítás a nyílbillentyűk segítségével. A turul az elcsatolt országrészeket automatikusan felemeli, amint közel
+Irányítás a nyílbillentyűk segítségével, vagy érintőkijelzővel ellátott készüléken a kijelző érintésével.
+A turul az elcsatolt országrészeket automatikusan felemeli, amint közel
 érünk, és leteszi, ha a megfelelő helyre illesztettük. Viszont egyszerre csak egyetlen elcsatolt országrészt tud
 a turul a karmával megemelni!
 

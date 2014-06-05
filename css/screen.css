@@ -27,9 +27,11 @@ a:hover {
   width: 600px;
   height: 400px;
   position: relative;
+  border: 1px white solid;
+  overflow: hidden;
 }
 
-#centre, 
+#centre,
 #ter1, #ter2, #ter3, #ter4, #ter5, #ter6, #ter7,
 #turul, .ellen1, .ellen2 {
   display: block;

@@ -10,7 +10,7 @@
   };
 
   var board = document.getElementById('board');
-  
+
   var worldWidth = board.offsetWidth;
   var worldHeight = board.offsetHeight;
   var turulOffsetY = document.getElementById('turul').offsetHeight/2;
@@ -24,6 +24,7 @@
   var ellens;
   var lives;
   var running;
+  var touch;
 
   var setCentre = function(elem, x, y) {
     var width = elem.offsetWidth;
@@ -48,6 +49,7 @@
     };
     speed = {x:0, y:0};
     grab = null;
+    touch = null;
 
     for (var theId in solution) {
       if (solution.hasOwnProperty(theId)) {
@@ -92,21 +94,56 @@
       case 38: keys.up = false; break;
       case 39: keys.right = false; break;
       case 40: keys.down = false; break;
-    };    
+    };
+  };
+
+  var onTouchStart = function(event) {
+    event.preventDefault();
+    var t = event.changedTouches[0];
+    touch = {x: t.pageX, y: t.pageY};
+  };
+
+  var onTouchEnd = function(event) {
+    event.preventDefault();
+    touch = null;
+  };
+
+  var onTouchMove = function(event) {
+    event.preventDefault();
+    var t = event.changedTouches[0];
+    if (touch) {
+      touch = {x: t.pageX, y: t.pageY};
+    }
   };
 
   var theLoop = function() {
     if (running) {
       document.body.style.background = 'black';
+      var usedKeys = {
+        left: keys.left,
+        right: keys.right,
+        up: keys.up,
+        down: keys.down
+      };
+
+      if (touch) {
+        posX = locations.turul.x - (touch.x-board.offsetLeft);
+        posY = locations.turul.y - (touch.y-board.offsetTop);
+        if (posX>0) usedKeys.left = true;
+        if (posX<0) usedKeys.right = true;
+        if (posY>0) usedKeys.up = true;
+        if (posY<0) usedKeys.down = true;
+      }
+
       if (locations.turul) {
         var speedChange = 0.3;
         var maxSpeed = 4;
 
-        if (keys.left) speed.x -= speedChange;
-        if (keys.right) speed.x += speedChange;
-        if (keys.up) speed.y -= speedChange;
-        if (keys.down) speed.y += speedChange;
-      
+        if (usedKeys.left) speed.x -= speedChange;
+        if (usedKeys.right) speed.x += speedChange;
+        if (usedKeys.up) speed.y -= speedChange;
+        if (usedKeys.down) speed.y += speedChange;
+
         if (speed.x>0) speed.x-=speedChange/2;
         if (speed.x<0) speed.x+=speedChange/2;
         if (speed.y>0) speed.y-=speedChange/2;
@@ -211,6 +248,9 @@
     running = true;
     window.addEventListener('keydown',onKeyDown);
     window.addEventListener('keyup',onKeyUp);
+    board.addEventListener('touchstart',onTouchStart);
+    board.addEventListener('touchend',onTouchEnd);
+    board.addEventListener('touchmove',onTouchMove);
     window.setInterval(theLoop, 33);
     reset();
   };
